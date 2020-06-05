@@ -42,9 +42,17 @@ export class ServerlessTicketTrackerStack extends cdk.Stack {
     table.grantWriteData(postTicketHandler);
     ticket.addMethod('POST', new apigateway.LambdaIntegration(postTicketHandler))
 
-    new CfnOutput(this, 'Api', {
-      exportName: 'ApiGatewayUrl',
-      value: api.url
+    const health = api.root.addResource('health');
+    const healthCheckHandler = new lambda.Function(this, 'HealthCheck', {
+      runtime: lambda.Runtime.NODEJS_10_X,
+      handler: 'index.handler',
+      code: lambda.Code.fromAsset('lambda/health-check'),
+      environment: {
+        TABLE_NAME: table.tableName
+      },
+      timeout: Duration.seconds(30)
     });
+    table.grantReadData(healthCheckHandler);
+    health.addMethod('GET', new apigateway.LambdaIntegration(healthCheckHandler))
   }
 }

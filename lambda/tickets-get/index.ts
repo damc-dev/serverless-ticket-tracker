@@ -5,7 +5,7 @@ const table = process.env.TABLE_NAME || 'SttTickets';
 const endpoint = process.env.AWS_SAM_LOCAL ? "http://dynamodb:8000/" : undefined;
 console.log(`Connecting to ${table} at endpoint: ${endpoint}`)
 
-export const handler: Handler = async(event = {}, context: Context): Promise<any> => {
+export const handler: Handler = async (event = {}, context: Context): Promise<any> => {
     const docClient = new AWS.DynamoDB.DocumentClient({
         endpoint
     });
@@ -14,14 +14,22 @@ export const handler: Handler = async(event = {}, context: Context): Promise<any
         TableName: table
     };
 
-    const tickets = await docClient.scan(params).promise()
-    return {
-        statusCode: 200,
-        headers: {
-            "Access-Control-Allow-Origin" : "*", // Required for CORS support to work
-            "Access-Control-Allow-Credentials" : true // Required for cookies, authorization headers with HTTPS
-        },
-        body: JSON.stringify(tickets)
-    };
+    try {
+        const tickets = await docClient.scan(params).promise()
+        return {
+            statusCode: 200,
+            headers: {
+                "Access-Control-Allow-Origin": "*", // Required for CORS support to work
+                "Access-Control-Allow-Credentials": true // Required for cookies, authorization headers with HTTPS
+            },
+            body: JSON.stringify(tickets)
+        };
+    } catch (err) {
+        console.error("Unable to add ticket. Error JSON:", JSON.stringify(err, null, 2));
+        return {
+            statusCode: '500',
+            body: 'Unable to retrieve tickets'
+        }
+    }
 
 }

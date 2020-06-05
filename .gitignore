@@ -10,3 +10,6 @@ cdk.out
 # Parcel build directories
 .cache
 .build
+
+# SAM template used for local testing
+template.yaml

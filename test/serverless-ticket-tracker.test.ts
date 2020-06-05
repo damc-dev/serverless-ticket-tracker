@@ -1,13 +1,11 @@
-import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
+import { SynthUtils } from '@aws-cdk/assert';
 import * as cdk from '@aws-cdk/core';
 import * as ServerlessTicketTracker from '../lib/serverless-ticket-tracker-stack';
 
-test('Empty Stack', () => {
+test('Stack Snapshot', () => {
     const app = new cdk.App();
     // WHEN
     const stack = new ServerlessTicketTracker.ServerlessTicketTrackerStack(app, 'MyTestStack');
     // THEN
-    expectCDK(stack).to(matchTemplate({
-      "Resources": {}
-    }, MatchStyle.EXACT))
+    expect(SynthUtils.toCloudFormation(stack)).toMatchSnapshot();
 });

@@ -1,0 +1,705 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Empty Stack 1`] = `
+Object {
+  "Outputs": Object {
+    "Api": Object {
+      "Export": Object {
+        "Name": "ApiGatewayUrl",
+      },
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            "https://",
+            Object {
+              "Ref": "TicketsApi5BB0C274",
+            },
+            ".execute-api.",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            ".",
+            Object {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            Object {
+              "Ref": "TicketsApiDeploymentStageprod5BCA3CD4",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+    "TicketsApiEndpoint73949A61": Object {
+      "Value": Object {
+        "Fn::Join": Array [
+          "",
+          Array [
+            "https://",
+            Object {
+              "Ref": "TicketsApi5BB0C274",
+            },
+            ".execute-api.",
+            Object {
+              "Ref": "AWS::Region",
+            },
+            ".",
+            Object {
+              "Ref": "AWS::URLSuffix",
+            },
+            "/",
+            Object {
+              "Ref": "TicketsApiDeploymentStageprod5BCA3CD4",
+            },
+            "/",
+          ],
+        ],
+      },
+    },
+  },
+  "Parameters": Object {
+    "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697ArtifactHashEB14D4EC": Object {
+      "Description": "Artifact hash for asset \\"934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697\\"",
+      "Type": "String",
+    },
+    "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3Bucket37123152": Object {
+      "Description": "S3 bucket for asset \\"934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697\\"",
+      "Type": "String",
+    },
+    "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3VersionKey5DEA9AA6": Object {
+      "Description": "S3 key for asset version \\"934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697\\"",
+      "Type": "String",
+    },
+    "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cArtifactHashEF3BF1FE": Object {
+      "Description": "Artifact hash for asset \\"9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8c\\"",
+      "Type": "String",
+    },
+    "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3Bucket7855209E": Object {
+      "Description": "S3 bucket for asset \\"9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8c\\"",
+      "Type": "String",
+    },
+    "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3VersionKey396B99AC": Object {
+      "Description": "S3 key for asset version \\"9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8c\\"",
+      "Type": "String",
+    },
+  },
+  "Resources": Object {
+    "GetTicket4BEE878E": Object {
+      "DependsOn": Array [
+        "GetTicketServiceRoleDefaultPolicy3B14A848",
+        "GetTicketServiceRole3B0B5142",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3Bucket7855209E",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3VersionKey396B99AC",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3VersionKey396B99AC",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "TABLE_NAME": Object {
+              "Ref": "TicketsTableB76A19AF",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "GetTicketServiceRole3B0B5142",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs10.x",
+        "Timeout": 30,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "GetTicketServiceRole3B0B5142": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "GetTicketServiceRoleDefaultPolicy3B14A848": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "TicketsTableB76A19AF",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "GetTicketServiceRoleDefaultPolicy3B14A848",
+        "Roles": Array [
+          Object {
+            "Ref": "GetTicketServiceRole3B0B5142",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "TicketsApi5BB0C274": Object {
+      "Properties": Object {
+        "Name": "TicketsApi",
+      },
+      "Type": "AWS::ApiGateway::RestApi",
+    },
+    "TicketsApiAccount2E13CE06": Object {
+      "DependsOn": Array [
+        "TicketsApi5BB0C274",
+      ],
+      "Properties": Object {
+        "CloudWatchRoleArn": Object {
+          "Fn::GetAtt": Array [
+            "TicketsApiCloudWatchRoleCD431BD7",
+            "Arn",
+          ],
+        },
+      },
+      "Type": "AWS::ApiGateway::Account",
+    },
+    "TicketsApiCloudWatchRoleCD431BD7": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "apigateway.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "TicketsApiDeployment7BF22014740f4977dea467ff606f601c68aacf1e": Object {
+      "DependsOn": Array [
+        "TicketsApiticketGET65DC6613",
+        "TicketsApiticketPOST4B2578D0",
+        "TicketsApiticketA33D88A0",
+      ],
+      "Properties": Object {
+        "Description": "Automatically created by the RestApi construct",
+        "RestApiId": Object {
+          "Ref": "TicketsApi5BB0C274",
+        },
+      },
+      "Type": "AWS::ApiGateway::Deployment",
+    },
+    "TicketsApiDeploymentStageprod5BCA3CD4": Object {
+      "Properties": Object {
+        "DeploymentId": Object {
+          "Ref": "TicketsApiDeployment7BF22014740f4977dea467ff606f601c68aacf1e",
+        },
+        "RestApiId": Object {
+          "Ref": "TicketsApi5BB0C274",
+        },
+        "StageName": "prod",
+      },
+      "Type": "AWS::ApiGateway::Stage",
+    },
+    "TicketsApiticketA33D88A0": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Fn::GetAtt": Array [
+            "TicketsApi5BB0C274",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "ticket",
+        "RestApiId": Object {
+          "Ref": "TicketsApi5BB0C274",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "TicketsApiticketGET65DC6613": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "GetTicket4BEE878E",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "TicketsApiticketA33D88A0",
+        },
+        "RestApiId": Object {
+          "Ref": "TicketsApi5BB0C274",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "TicketsApiticketGETApiPermissionMyTestStackTicketsApi42B25C87GETticketE19F28FB": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "GetTicket4BEE878E",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "TicketsApi5BB0C274",
+              },
+              "/",
+              Object {
+                "Ref": "TicketsApiDeploymentStageprod5BCA3CD4",
+              },
+              "/GET/ticket",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "TicketsApiticketGETApiPermissionTestMyTestStackTicketsApi42B25C87GETticketBB575261": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "GetTicket4BEE878E",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "TicketsApi5BB0C274",
+              },
+              "/test-invoke-stage/GET/ticket",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "TicketsApiticketPOST4B2578D0": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "POST",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "TicketsPost90C6DE87",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "TicketsApiticketA33D88A0",
+        },
+        "RestApiId": Object {
+          "Ref": "TicketsApi5BB0C274",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
+    },
+    "TicketsApiticketPOSTApiPermissionMyTestStackTicketsApi42B25C87POSTticket85FD9720": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "TicketsPost90C6DE87",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "TicketsApi5BB0C274",
+              },
+              "/",
+              Object {
+                "Ref": "TicketsApiDeploymentStageprod5BCA3CD4",
+              },
+              "/POST/ticket",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "TicketsApiticketPOSTApiPermissionTestMyTestStackTicketsApi42B25C87POSTticket3EAE0373": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "TicketsPost90C6DE87",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "TicketsApi5BB0C274",
+              },
+              "/test-invoke-stage/POST/ticket",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "TicketsPost90C6DE87": Object {
+      "DependsOn": Array [
+        "TicketsPostServiceRoleDefaultPolicy27D0FB29",
+        "TicketsPostServiceRole8974BAF6",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3Bucket37123152",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3VersionKey5DEA9AA6",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3VersionKey5DEA9AA6",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "TABLE_NAME": Object {
+              "Ref": "TicketsTableB76A19AF",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "TicketsPostServiceRole8974BAF6",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs10.x",
+        "Timeout": 30,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "TicketsPostServiceRole8974BAF6": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "TicketsPostServiceRoleDefaultPolicy27D0FB29": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:BatchWriteItem",
+                "dynamodb:PutItem",
+                "dynamodb:UpdateItem",
+                "dynamodb:DeleteItem",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "TicketsTableB76A19AF",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "TicketsPostServiceRoleDefaultPolicy27D0FB29",
+        "Roles": Array [
+          Object {
+            "Ref": "TicketsPostServiceRole8974BAF6",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
+    "TicketsTableB76A19AF": Object {
+      "DeletionPolicy": "Retain",
+      "Properties": Object {
+        "AttributeDefinitions": Array [
+          Object {
+            "AttributeName": "id",
+            "AttributeType": "S",
+          },
+        ],
+        "KeySchema": Array [
+          Object {
+            "AttributeName": "id",
+            "KeyType": "HASH",
+          },
+        ],
+        "ProvisionedThroughput": Object {
+          "ReadCapacityUnits": 5,
+          "WriteCapacityUnits": 5,
+        },
+        "TableName": "SttTickets",
+      },
+      "Type": "AWS::DynamoDB::Table",
+      "UpdateReplacePolicy": "Retain",
+    },
+  },
+}
+`;

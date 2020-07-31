@@ -8,7 +8,9 @@ export class ServerlessTicketTrackerStage extends Stage {
   constructor(scope: Construct, id: string, props?: StageProps) {
     super(scope, id, props);
 
-    const service = new ServerlessTicketTrackerStack(this, 'ServerlessTicketTracker');
+    const service = new ServerlessTicketTrackerStack(this, 'ServerlessTicketTracker', {
+      env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: process.env.CDK_DEFAULT_REGION },
+    });
     
     this.urlOutput = service.urlOutput;
   }

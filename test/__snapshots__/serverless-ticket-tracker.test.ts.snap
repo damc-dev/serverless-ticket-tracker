@@ -1,37 +1,8 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Empty Stack 1`] = `
+exports[`Stack Snapshot 1`] = `
 Object {
   "Outputs": Object {
-    "Api": Object {
-      "Export": Object {
-        "Name": "ApiGatewayUrl",
-      },
-      "Value": Object {
-        "Fn::Join": Array [
-          "",
-          Array [
-            "https://",
-            Object {
-              "Ref": "TicketsApi5BB0C274",
-            },
-            ".execute-api.",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            ".",
-            Object {
-              "Ref": "AWS::URLSuffix",
-            },
-            "/",
-            Object {
-              "Ref": "TicketsApiDeploymentStageprod5BCA3CD4",
-            },
-            "/",
-          ],
-        ],
-      },
-    },
     "TicketsApiEndpoint73949A61": Object {
       "Value": Object {
         "Fn::Join": Array [
@@ -60,28 +31,40 @@ Object {
     },
   },
   "Parameters": Object {
-    "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697ArtifactHashEB14D4EC": Object {
-      "Description": "Artifact hash for asset \\"934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697\\"",
+    "AssetParameters68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888ArtifactHash71C1493E": Object {
+      "Description": "Artifact hash for asset \\"68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888\\"",
       "Type": "String",
     },
-    "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3Bucket37123152": Object {
-      "Description": "S3 bucket for asset \\"934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697\\"",
+    "AssetParameters68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888S3Bucket6627E468": Object {
+      "Description": "S3 bucket for asset \\"68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888\\"",
       "Type": "String",
     },
-    "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3VersionKey5DEA9AA6": Object {
-      "Description": "S3 key for asset version \\"934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697\\"",
+    "AssetParameters68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888S3VersionKey0AA68A76": Object {
+      "Description": "S3 key for asset version \\"68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888\\"",
       "Type": "String",
     },
-    "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cArtifactHashEF3BF1FE": Object {
-      "Description": "Artifact hash for asset \\"9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8c\\"",
+    "AssetParametersaefdea884930f8e31c77b692a0c9d29dc35671165502f5eb7303eae0df30f0f3ArtifactHash9F96D9AD": Object {
+      "Description": "Artifact hash for asset \\"aefdea884930f8e31c77b692a0c9d29dc35671165502f5eb7303eae0df30f0f3\\"",
       "Type": "String",
     },
-    "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3Bucket7855209E": Object {
-      "Description": "S3 bucket for asset \\"9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8c\\"",
+    "AssetParametersaefdea884930f8e31c77b692a0c9d29dc35671165502f5eb7303eae0df30f0f3S3BucketB7C90BB0": Object {
+      "Description": "S3 bucket for asset \\"aefdea884930f8e31c77b692a0c9d29dc35671165502f5eb7303eae0df30f0f3\\"",
       "Type": "String",
     },
-    "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3VersionKey396B99AC": Object {
-      "Description": "S3 key for asset version \\"9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8c\\"",
+    "AssetParametersaefdea884930f8e31c77b692a0c9d29dc35671165502f5eb7303eae0df30f0f3S3VersionKey8F500E6E": Object {
+      "Description": "S3 key for asset version \\"aefdea884930f8e31c77b692a0c9d29dc35671165502f5eb7303eae0df30f0f3\\"",
+      "Type": "String",
+    },
+    "AssetParametersd399a49e9a3b5bf091059e38e7b6d307b3346e6e9af3896bdc1c80e33cff6e4cArtifactHashD74DFAAA": Object {
+      "Description": "Artifact hash for asset \\"d399a49e9a3b5bf091059e38e7b6d307b3346e6e9af3896bdc1c80e33cff6e4c\\"",
+      "Type": "String",
+    },
+    "AssetParametersd399a49e9a3b5bf091059e38e7b6d307b3346e6e9af3896bdc1c80e33cff6e4cS3BucketB891A3BB": Object {
+      "Description": "S3 bucket for asset \\"d399a49e9a3b5bf091059e38e7b6d307b3346e6e9af3896bdc1c80e33cff6e4c\\"",
+      "Type": "String",
+    },
+    "AssetParametersd399a49e9a3b5bf091059e38e7b6d307b3346e6e9af3896bdc1c80e33cff6e4cS3VersionKey2FC59AFE": Object {
+      "Description": "S3 key for asset version \\"d399a49e9a3b5bf091059e38e7b6d307b3346e6e9af3896bdc1c80e33cff6e4c\\"",
       "Type": "String",
     },
   },
@@ -94,7 +77,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3Bucket7855209E",
+            "Ref": "AssetParametersd399a49e9a3b5bf091059e38e7b6d307b3346e6e9af3896bdc1c80e33cff6e4cS3BucketB891A3BB",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -107,7 +90,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3VersionKey396B99AC",
+                          "Ref": "AssetParametersd399a49e9a3b5bf091059e38e7b6d307b3346e6e9af3896bdc1c80e33cff6e4cS3VersionKey2FC59AFE",
                         },
                       ],
                     },
@@ -120,7 +103,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters9384251cc91e2a3fe00d2a22955035de6748a0dbab2f532ba13eb6f465e7ae8cS3VersionKey396B99AC",
+                          "Ref": "AssetParametersd399a49e9a3b5bf091059e38e7b6d307b3346e6e9af3896bdc1c80e33cff6e4cS3VersionKey2FC59AFE",
                         },
                       ],
                     },
@@ -218,6 +201,138 @@ Object {
       },
       "Type": "AWS::IAM::Policy",
     },
+    "HealthCheckA1C381C7": Object {
+      "DependsOn": Array [
+        "HealthCheckServiceRoleDefaultPolicyAE8FE253",
+        "HealthCheckServiceRoleC964F23C",
+      ],
+      "Properties": Object {
+        "Code": Object {
+          "S3Bucket": Object {
+            "Ref": "AssetParameters68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888S3Bucket6627E468",
+          },
+          "S3Key": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                Object {
+                  "Fn::Select": Array [
+                    0,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888S3VersionKey0AA68A76",
+                        },
+                      ],
+                    },
+                  ],
+                },
+                Object {
+                  "Fn::Select": Array [
+                    1,
+                    Object {
+                      "Fn::Split": Array [
+                        "||",
+                        Object {
+                          "Ref": "AssetParameters68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888S3VersionKey0AA68A76",
+                        },
+                      ],
+                    },
+                  ],
+                },
+              ],
+            ],
+          },
+        },
+        "Environment": Object {
+          "Variables": Object {
+            "TABLE_NAME": Object {
+              "Ref": "TicketsTableB76A19AF",
+            },
+          },
+        },
+        "Handler": "index.handler",
+        "Role": Object {
+          "Fn::GetAtt": Array [
+            "HealthCheckServiceRoleC964F23C",
+            "Arn",
+          ],
+        },
+        "Runtime": "nodejs10.x",
+        "Timeout": 30,
+      },
+      "Type": "AWS::Lambda::Function",
+    },
+    "HealthCheckServiceRoleC964F23C": Object {
+      "Properties": Object {
+        "AssumeRolePolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": "sts:AssumeRole",
+              "Effect": "Allow",
+              "Principal": Object {
+                "Service": "lambda.amazonaws.com",
+              },
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "ManagedPolicyArns": Array [
+          Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":iam::aws:policy/service-role/AWSLambdaBasicExecutionRole",
+              ],
+            ],
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Role",
+    },
+    "HealthCheckServiceRoleDefaultPolicyAE8FE253": Object {
+      "Properties": Object {
+        "PolicyDocument": Object {
+          "Statement": Array [
+            Object {
+              "Action": Array [
+                "dynamodb:BatchGetItem",
+                "dynamodb:GetRecords",
+                "dynamodb:GetShardIterator",
+                "dynamodb:Query",
+                "dynamodb:GetItem",
+                "dynamodb:Scan",
+              ],
+              "Effect": "Allow",
+              "Resource": Array [
+                Object {
+                  "Fn::GetAtt": Array [
+                    "TicketsTableB76A19AF",
+                    "Arn",
+                  ],
+                },
+                Object {
+                  "Ref": "AWS::NoValue",
+                },
+              ],
+            },
+          ],
+          "Version": "2012-10-17",
+        },
+        "PolicyName": "HealthCheckServiceRoleDefaultPolicyAE8FE253",
+        "Roles": Array [
+          Object {
+            "Ref": "HealthCheckServiceRoleC964F23C",
+          },
+        ],
+      },
+      "Type": "AWS::IAM::Policy",
+    },
     "TicketsApi5BB0C274": Object {
       "Properties": Object {
         "Name": "TicketsApi",
@@ -269,8 +384,10 @@ Object {
       },
       "Type": "AWS::IAM::Role",
     },
-    "TicketsApiDeployment7BF22014740f4977dea467ff606f601c68aacf1e": Object {
+    "TicketsApiDeployment7BF22014e1267a19b37c38a5f8ca9aaac786d7c9": Object {
       "DependsOn": Array [
+        "TicketsApihealthGETB0F582E9",
+        "TicketsApihealth1A62B535",
         "TicketsApiticketGET65DC6613",
         "TicketsApiticketPOST4B2578D0",
         "TicketsApiticketA33D88A0",
@@ -286,7 +403,7 @@ Object {
     "TicketsApiDeploymentStageprod5BCA3CD4": Object {
       "Properties": Object {
         "DeploymentId": Object {
-          "Ref": "TicketsApiDeployment7BF22014740f4977dea467ff606f601c68aacf1e",
+          "Ref": "TicketsApiDeployment7BF22014e1267a19b37c38a5f8ca9aaac786d7c9",
         },
         "RestApiId": Object {
           "Ref": "TicketsApi5BB0C274",
@@ -294,6 +411,139 @@ Object {
         "StageName": "prod",
       },
       "Type": "AWS::ApiGateway::Stage",
+    },
+    "TicketsApihealth1A62B535": Object {
+      "Properties": Object {
+        "ParentId": Object {
+          "Fn::GetAtt": Array [
+            "TicketsApi5BB0C274",
+            "RootResourceId",
+          ],
+        },
+        "PathPart": "health",
+        "RestApiId": Object {
+          "Ref": "TicketsApi5BB0C274",
+        },
+      },
+      "Type": "AWS::ApiGateway::Resource",
+    },
+    "TicketsApihealthGETApiPermissionMyTestStackTicketsApi42B25C87GEThealth61AD6E31": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "HealthCheckA1C381C7",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "TicketsApi5BB0C274",
+              },
+              "/",
+              Object {
+                "Ref": "TicketsApiDeploymentStageprod5BCA3CD4",
+              },
+              "/GET/health",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "TicketsApihealthGETApiPermissionTestMyTestStackTicketsApi42B25C87GEThealth369618F9": Object {
+      "Properties": Object {
+        "Action": "lambda:InvokeFunction",
+        "FunctionName": Object {
+          "Fn::GetAtt": Array [
+            "HealthCheckA1C381C7",
+            "Arn",
+          ],
+        },
+        "Principal": "apigateway.amazonaws.com",
+        "SourceArn": Object {
+          "Fn::Join": Array [
+            "",
+            Array [
+              "arn:",
+              Object {
+                "Ref": "AWS::Partition",
+              },
+              ":execute-api:",
+              Object {
+                "Ref": "AWS::Region",
+              },
+              ":",
+              Object {
+                "Ref": "AWS::AccountId",
+              },
+              ":",
+              Object {
+                "Ref": "TicketsApi5BB0C274",
+              },
+              "/test-invoke-stage/GET/health",
+            ],
+          ],
+        },
+      },
+      "Type": "AWS::Lambda::Permission",
+    },
+    "TicketsApihealthGETB0F582E9": Object {
+      "Properties": Object {
+        "AuthorizationType": "NONE",
+        "HttpMethod": "GET",
+        "Integration": Object {
+          "IntegrationHttpMethod": "POST",
+          "Type": "AWS_PROXY",
+          "Uri": Object {
+            "Fn::Join": Array [
+              "",
+              Array [
+                "arn:",
+                Object {
+                  "Ref": "AWS::Partition",
+                },
+                ":apigateway:",
+                Object {
+                  "Ref": "AWS::Region",
+                },
+                ":lambda:path/2015-03-31/functions/",
+                Object {
+                  "Fn::GetAtt": Array [
+                    "HealthCheckA1C381C7",
+                    "Arn",
+                  ],
+                },
+                "/invocations",
+              ],
+            ],
+          },
+        },
+        "ResourceId": Object {
+          "Ref": "TicketsApihealth1A62B535",
+        },
+        "RestApiId": Object {
+          "Ref": "TicketsApi5BB0C274",
+        },
+      },
+      "Type": "AWS::ApiGateway::Method",
     },
     "TicketsApiticketA33D88A0": Object {
       "Properties": Object {
@@ -554,7 +804,7 @@ Object {
       "Properties": Object {
         "Code": Object {
           "S3Bucket": Object {
-            "Ref": "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3Bucket37123152",
+            "Ref": "AssetParametersaefdea884930f8e31c77b692a0c9d29dc35671165502f5eb7303eae0df30f0f3S3BucketB7C90BB0",
           },
           "S3Key": Object {
             "Fn::Join": Array [
@@ -567,7 +817,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3VersionKey5DEA9AA6",
+                          "Ref": "AssetParametersaefdea884930f8e31c77b692a0c9d29dc35671165502f5eb7303eae0df30f0f3S3VersionKey8F500E6E",
                         },
                       ],
                     },
@@ -580,7 +830,7 @@ Object {
                       "Fn::Split": Array [
                         "||",
                         Object {
-                          "Ref": "AssetParameters934fc3a0d4fb380ef495d5dabf026e41f4c72c1a428063cbf5831b12bb6c5697S3VersionKey5DEA9AA6",
+                          "Ref": "AssetParametersaefdea884930f8e31c77b692a0c9d29dc35671165502f5eb7303eae0df30f0f3S3VersionKey8F500E6E",
                         },
                       ],
                     },

@@ -4,9 +4,11 @@ import * as apigateway from '@aws-cdk/aws-apigateway'
 import * as path from 'path';
 import * as dynamodb from '@aws-cdk/aws-dynamodb';
 import { CfnOutput, Duration } from '@aws-cdk/core';
-
+import * as codepipeline from '@aws-cdk/aws-codepipeline'
 
 export class ServerlessTicketTrackerStack extends cdk.Stack {
+  public readonly urlOutput: CfnOutput;
+
   constructor(scope: cdk.Construct, id: string, props?: cdk.StackProps) {
     super(scope, id, props);
 
@@ -54,5 +56,9 @@ export class ServerlessTicketTrackerStack extends cdk.Stack {
     });
     table.grantReadData(healthCheckHandler);
     health.addMethod('GET', new apigateway.LambdaIntegration(healthCheckHandler))
+
+    this.urlOutput = new CfnOutput(this, 'Url', {
+      value: api.url
+    });
   }
 }

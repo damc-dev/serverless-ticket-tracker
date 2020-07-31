@@ -3,6 +3,7 @@ import * as path from 'path';
 import * as yargs from 'yargs';
 import * as yaml from 'js-yaml';
 import * as fs from 'fs';
+import * as stream from 'stream';
 
 yargs.usage("Runs the sam local invoke on a lambda")
 .options({
@@ -16,6 +17,12 @@ yargs.usage("Runs the sam local invoke on a lambda")
         demandOption: true,
         describe: "The directory of the lambda to run",
         type: "string"
+    },
+    requestFile: {
+        demandOption: false,
+        describe: "The file body of the lambda to run",
+        type: "string",
+        default: "event.json"
     }
 }).showHelpOnFail(true);
 
@@ -23,17 +30,15 @@ declare type EnvironmentVariables = {
     [name: string]: string;
 }
 class InvokeLambda {
-    readonly template: string;
     readonly lambdaLogicalId: string;
     readonly envVarsFile: string;
 
     constructor(lambdaLogicalId: string, template: string, envVarsFile: string) {
         this.lambdaLogicalId = lambdaLogicalId;
-        this.template = template;
         this.envVarsFile = envVarsFile;
     }
 
-    async invoke(): Promise<any> {
+    async invoke(stdin: string | undefined): Promise<any> {
         const args: string[] = ["local", "invoke", this.lambdaLogicalId, "--env-vars", this.envVarsFile];
         return new Promise((resolve, reject) => {
             const process = spawn("sam", args, {stdio: "inherit", shell: true});
@@ -44,6 +49,12 @@ class InvokeLambda {
                     reject(new Error(`Exit code: ${code}`))
                 }
             })
+            if (stdin) {
+                let stdinStream = new stream.Readable();
+                stdinStream.push(stdin);  // Add data to the internal queue for users of the stream to consume
+                stdinStream.push(null);   // Signals the end of the stream (EOF)
+                stdinStream.pipe(process.stdin);
+            }
         })
     }
 }
@@ -51,6 +62,8 @@ class InvokeLambda {
 async function main(argv: yargs.Arguments): Promise<any> {
     const lambdaDir: string = argv.lambdaDir as string;
     const template: string = argv.template as string;
+    const requestFile: string = argv.requestFile as string;
+
 
     const lambdaLogicalId = await getLogicalId(template, path.resolve(lambdaDir));
     if (!lambdaLogicalId) {
@@ -59,8 +72,12 @@ async function main(argv: yargs.Arguments): Promise<any> {
     }
     const envVarsFile = await updateLogicalId(lambdaDir, lambdaLogicalId);
     const invokeLambda = new InvokeLambda(lambdaLogicalId, template, envVarsFile);
-
-    await invokeLambda.invoke();
+    let fileContents = undefined
+    let requestPath: string = path.resolve(path.join(lambdaDir, requestFile))
+    if (fs.existsSync(requestPath)) {
+        fileContents = fs.readFileSync(requestPath, 'utf8');
+    }
+    await invokeLambda.invoke(fileContents);
     fs.unlinkSync(envVarsFile)
 
 }
@@ -84,10 +101,14 @@ async function getLogicalId(template: string, lambdaPath: string): Promise<strin
 }
 
 async function updateLogicalId(lambdaDir: string, logicalId: string) {
-    let rawdata = fs.readFileSync(path.resolve(path.join(lambdaDir, "environment.json")), {
-        encoding: "UTF-8"
-    });
-    let env = JSON.parse(rawdata);
+    let env: any = {};
+    let envFilePath = path.resolve(path.join(lambdaDir, "environment.json"))
+    if (fs.existsSync(envFilePath)) {
+        let rawdata = fs.readFileSync(path.resolve(path.join(lambdaDir, "environment.json")), {
+            encoding: "UTF-8"
+        });
+        env = JSON.parse(rawdata);
+    }
     let environment = {
         [logicalId]: env
     }

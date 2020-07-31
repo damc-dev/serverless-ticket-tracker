@@ -47,7 +47,7 @@ yarn sam-template
 The find the logical id of the lambda you want to invoke in the template.yaml and invoke with sam
 
 ```
-echo '{}' | sam local invoke ticketsGet57CD6353
+yarn invoke-local-lambda --lambdaDir lambda/tickets-get
 ```
 
 ## Useful commands

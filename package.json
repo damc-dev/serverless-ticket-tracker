@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "test": "yarn build && jest",
     "cdk": "cdk",
     "clean": "rimraf {lambda,bin,lib,test,scripts}/**/*.{d.ts,js} dist cdk.out",
     "sam-template": "yarn build && cdk synth --no-staging > template.yaml",
@@ -15,24 +15,25 @@
     "start-db": "ts-node scripts/dynamodb-local-start.ts"
   },
   "devDependencies": {
-    "@aws-cdk/assert": "1.42.1",
+    "@aws-cdk/assert": "1.55.0",
     "@types/aws-lambda": "^8.10.53",
     "@types/jest": "^25.2.1",
     "@types/js-yaml": "^3.12.4",
     "@types/node": "10.17.5",
-    "aws-cdk": "1.42.1",
+    "aws-cdk": "1.55.0",
     "jest": "^25.5.0",
     "js-yaml": "^3.14.0",
     "rimraf": "^3.0.2",
     "ts-jest": "^25.3.1",
     "ts-node": "^8.1.0",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "lodash": "^4.17.19"
   },
   "dependencies": {
-    "@aws-cdk/aws-apigateway": "1.42.1",
-    "@aws-cdk/aws-dynamodb": "1.42.1",
-    "@aws-cdk/aws-lambda": "1.42.1",
-    "@aws-cdk/core": "1.42.1",
+    "@aws-cdk/aws-apigateway": "1.55.0",
+    "@aws-cdk/aws-dynamodb": "1.55.0",
+    "@aws-cdk/aws-lambda": "1.55.0",
+    "@aws-cdk/core": "1.55.0",
     "source-map-support": "^0.5.16"
   }
 }

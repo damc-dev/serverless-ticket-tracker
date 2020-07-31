@@ -29,32 +29,6 @@ Object {
         ],
       },
     },
-    "Url": Object {
-      "Value": Object {
-        "Fn::Join": Array [
-          "",
-          Array [
-            "https://",
-            Object {
-              "Ref": "TicketsApi5BB0C274",
-            },
-            ".execute-api.",
-            Object {
-              "Ref": "AWS::Region",
-            },
-            ".",
-            Object {
-              "Ref": "AWS::URLSuffix",
-            },
-            "/",
-            Object {
-              "Ref": "TicketsApiDeploymentStageprod5BCA3CD4",
-            },
-            "/",
-          ],
-        ],
-      },
-    },
   },
   "Parameters": Object {
     "AssetParameters68185111c67c639a331597468fd125de507b81809a788bacf22f4818dec3d888ArtifactHash71C1493E": Object {

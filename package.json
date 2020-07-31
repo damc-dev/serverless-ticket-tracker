@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "watch": "tsc -w",
-    "test": "jest",
+    "test": "yarn build && jest",
     "cdk": "cdk",
     "clean": "rimraf {lambda,bin,lib,test,scripts}/**/*.{d.ts,js} dist cdk.out",
     "sam-template": "yarn build && cdk synth --no-staging > template.yaml",

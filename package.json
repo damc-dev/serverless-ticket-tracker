@@ -12,7 +12,8 @@
     "clean": "rimraf {lambda,bin,lib,test,scripts}/**/*.{d.ts,js} dist cdk.out",
     "sam-template": "yarn build && cdk synth --no-staging > template.yaml",
     "start-api": "sam local start-api --docker-network sam-network",
-    "start-db": "ts-node scripts/dynamodb-local-start.ts"
+    "start-db": "ts-node scripts/dynamodb-local-start.ts",
+    "invoke-local-lambda": "ts-node scripts/invoke-lambda.ts"
   },
   "devDependencies": {
     "@aws-cdk/assert": "1.55.0",

@@ -23,11 +23,11 @@
     "aws-cdk": "1.55.0",
     "jest": "^25.5.0",
     "js-yaml": "^3.14.0",
+    "lodash": "^4.17.19",
     "rimraf": "^3.0.2",
     "ts-jest": "^25.3.1",
     "ts-node": "^8.1.0",
-    "typescript": "~3.7.2",
-    "lodash": "^4.17.19"
+    "typescript": "~3.7.2"
   },
   "dependencies": {
     "@aws-cdk/aws-apigateway": "1.55.0",

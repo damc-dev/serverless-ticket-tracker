@@ -19,7 +19,7 @@ export class PipelineStack extends cdk.Stack {
           sourceAction: new codepipeline_actions.GitHubSourceAction({
             actionName: 'GitHub',
             output: sourceArtifact,
-            oauthToken: SecretValue.secretsManager('github-token'),
+            oauthToken: SecretValue.secretsManager('github-token-2'),
             trigger: codepipeline_actions.GitHubTrigger.POLL,
             owner: 'damc-dev',
             repo: 'serverless-ticket-tracker',
@@ -32,7 +32,7 @@ export class PipelineStack extends cdk.Stack {
           }),
         });
         pipeline.addApplicationStage(new ServerlessTicketTrackerStage(this, 'PreProd', {
-            env: { account: '342431730723', region: 'us-east-1' }
-          }));
+            env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: "us-east-1" },
+        }));
     }
 }

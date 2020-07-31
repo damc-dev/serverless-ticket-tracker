@@ -5,4 +5,6 @@ import { ServerlessTicketTrackerStack } from '../lib/serverless-ticket-tracker-s
 import { PipelineStack } from '../lib/pipeline-stack';
 
 const app = new cdk.App();
-new PipelineStack(app, 'ServerlessTicketTrackerPipelineStack');
+new PipelineStack(app, 'ServerlessTicketTrackerPipelineStack', {
+    env: { account: process.env.CDK_DEFAULT_ACCOUNT, region: "us-east-1" },
+});
